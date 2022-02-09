@@ -12,7 +12,9 @@ const Login = ({onIdSubmit}) => {
     }
 
     const CreateNewId=()=>{
+       
        onIdSubmit(uuidv4())
+       
     }
     return (
         <Container className="align-items-center d-flex" style={{ height:'100vh'}}>
@@ -20,10 +22,10 @@ const Login = ({onIdSubmit}) => {
                 <Form.Group>
                     
                     <Form.Label>enter your id</Form.Label>
-                    <Form.Control type="text" ref={idRef} required></Form.Control>
+                    <Form.Control type="text" ref={idRef} required />
                 </Form.Group>
                 <Button type="submit" className="mr-2"> login </Button>
-                <Button variant="secondary" onClick={CreateNewId}> creat new id </Button>
+                <Button variant="secondary" onClick={CreateNewId} > create a new id </Button>
             </Form>
         </Container>
     )

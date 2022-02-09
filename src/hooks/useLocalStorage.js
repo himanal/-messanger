@@ -2,15 +2,16 @@ import {useEffect, useState}  from 'react'
 
 const PREFIX= 'wahatsapp-clone-'
 
-function useLocalStorage(key ,initialValue) {
+const UseLocalStorage=(key ,initialValue)=>  {
 
     const prefixedkey= PREFIX + key
-    const [value , setValue]=useState(()=>{
-       const jsonValue= localStorage.getItem(prefixedkey)
-       if(jsonValue ) return JSON.parse(jsonValue)
-       if(typeof initialValue ==='function'){
+    const [value , setValue]=useState( ()=>{
+        const  jsonValue= localStorage.getItem(prefixedkey);
+        if(jsonValue != null )return JSON.parse(jsonValue)
+       
+       if(typeof initialValue === 'function'){
            return initialValue()
-       } else{
+       } else {
            return initialValue
        }
     })
@@ -23,4 +24,4 @@ function useLocalStorage(key ,initialValue) {
     return [value, setValue]
 }
 
-export default useLocalStorage
+export default UseLocalStorage
